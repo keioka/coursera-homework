@@ -24,11 +24,8 @@ function quickSort(arr, leftIndex, rightIndex){
 }
 
 function partition(arr, left, right){
-  // console.log('============')
-  // console.log(left, right)
-  this.count += right - left;
 
-  // console.log(arr.slice(left, right));
+  this.count += right - left;
 
   // Choose left most element as a pivot.
   var pivotValue = arr[left];
@@ -37,8 +34,6 @@ function partition(arr, left, right){
   var partitionIndex = left + 1;
  
   for(var i = left + 1; i <= right; i++){
-    // console.log('swap', i, partitionIndex,  arr);
-
   	// If arr[i] is smaller than pivot value
     if(arr[i] < pivotValue) {
       swap(arr, i, partitionIndex);
@@ -49,14 +44,10 @@ function partition(arr, left, right){
   // Switch left element which is pivot to sorted position.
   swap(arr, left, partitionIndex - 1);
   
-  // console.log(arr);
   return partitionIndex - 1;
 }
 
 function swap(arr, index1, index2) {
-  // console.log('swap');
-  // console.log(index1, arr[index1]);
-  // console.log(index2, arr[index2])
   var temp = arr[index1];
   arr[index1] = arr[index2];
   arr[index2] = temp;

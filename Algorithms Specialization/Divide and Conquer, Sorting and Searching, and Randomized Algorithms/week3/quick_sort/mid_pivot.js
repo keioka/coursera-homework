@@ -71,7 +71,6 @@ function partition(arr, left, right){
   var partitionIndex = left;
  
   for(var i = left + 1; i <= right ; i++){
-    // console.log('swap', i, partitionIndex,  arr);
 
     // If arr[i] is smaller than pivot value
     if(arr[i] < pivotValue) {
@@ -84,7 +83,6 @@ function partition(arr, left, right){
   // Switch left element which is pivot to sorted position.
   swap(arr, left, partitionIndex);
   
-  // console.log(arr);
   return partitionIndex;
 }
 

@@ -7,12 +7,12 @@ fs.readFile('./data.txt', 'utf-8', function(err, data) {
   for (let line of lines) {
   	array.push(line);
   }
-  // console.log(mergeSort(array));
-  // console.log(count)
+  console.log(mergeSort(array));
+  console.log(count)
 });
 
 // O(n log N)
-
+var m = 0;
 function mergeSort(array) {
   if (array.length < 2) {
   	return array;
@@ -22,7 +22,7 @@ function mergeSort(array) {
   var left = array.slice(0, mid);
   var right = array.slice(mid, array.length);
 
-  return merge(mergeSort(left), mergeSort(right), mid);
+  return merge(mergeSort(left), mergeSort(right));
 }
 
 
@@ -39,18 +39,16 @@ function merge(array1, array2, mid) {
   		i++;
   	} else {
   		sortedArray.push(array2[j]);
-  		console.log("=====")
-  		console.log('array1', array1)
-  		console.log('array2', array2)
-  		console.log(sortedArray)
-  		console.log(mid)
-  		console.log(i)
-  		console.log(mid - i)
-  		console.log("=====")
-  		count += mid - i;
+  		count += array1.length - i;
+        
+  		if (count === 100000) {
+  			console.log(array1, array2)
+  			throw new Error()
+  		}
   		j++;
   	}
   }
+
   while(array1.length > i) {
   	sortedArray.push(array1[i]);
     i++;
@@ -64,14 +62,3 @@ function merge(array1, array2, mid) {
 
   return sortedArray
 }
-
-// [ 2, 4, 1, 3, 5 ]
-// [ 2, 4 ] [ 1, 3, 5 ]
-
-// [ 1, 2, 3, 4, 5 ]
-
-console.log(mergeSort([1, 20, 6, 4, 5]));
-console.log(count)
-// count = 0;
-// mergeSort([3, 4, 6, 1, 2, 5]);
-// console.log(count)
