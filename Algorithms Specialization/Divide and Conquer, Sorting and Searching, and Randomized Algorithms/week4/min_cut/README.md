@@ -26,8 +26,8 @@ return graph.verticies[first or second].length
 To pick a random edge, a total number of edges is used to generate a random number. 
 
 #### Behavior
-- 1. pick a random edge
-- 2. contraction
+- pick a random edge (step 1)
+- contraction (step 2)
 
 ##### 1. pick a random edge
 In theory, we need to pick up a random edge, and it means picking up a vertex and its neighbor so this helper function or this process returns both of them.
